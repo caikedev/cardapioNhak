@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>NHAK Delivery</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+    <script src="./assets/js/jquery.slim.min.js"></script>
+    <script src="./assets/js/bootstrap.bundle.min.js"></script>
+    <script src="./assets/js/popper.min.js"></script>
+    
+
+    <style>
+        body{
+            background-color: blueviolet;
+        }
+        /* Make the image fully responsive */
+        .carousel-inner div {
+            width: 100%;
+            height: 100%;
+        }
+        .carousel-item p.product-body{
+            /*
+            border-width: medium;
+            border-style: solid;
+            border-color: #00f;
+            */
+            text-align: justify;
+            width: 300px;
+            position: relative;
+            top: 20%;
+            color: aliceblue;
+            font-size: 18px;
+        }
+
+        .product-title{
+            text-align: center;
+            width: 300px;
+            position: relative;
+            top: 20%;
+            color: aliceblue;
+            font-size: 22px;
+        }
+
+        div.partner {
+            width: 100px;
+            height: 50px;
+            display: inline-block;
+            margin: 0 auto;
+        }
+
+        div.partner img{
+            width: 100%;
+            height: 100%;
+        }
+
+        .nav-item h1{
+            text-align: center;
+            color: aliceblue;
+        }
+        
+        .navbar-nav{
+            display: inline-block;
+        }
+
+        .brand{
+            text-align: center;
+            position: absolute;
+            color: aliceblue;
+            padding-left: 37%;
+        }
+
+        footer{
+            padding-bottom: 1%;
+        }
+    </style>
+</head>
+<body>
+    
+    <nav class="navbar">
+        <!-- Brand/logo -->
+        <a class="navbar-brand" href="#">
+            <img src="./assets/img/logonhak.png" alt="Logo do NHAK" width="100px" height="70px">
+        </a>
+        <h1 class="brand" id="brand">Batatas Recheadas</h1>
+            <!-- Links -->
+            <!-- <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link 1</a>
+                </li>
+            </ul> -->
+    </nav>
+    
+    <div class="container container-fluid" style="height: auto;">
+        
+        <div id="menu" class="carousel slide" data-ride="carousel">
+            
+            <!-- Indicators -->
+            <ul class="carousel-indicators" id="indicators">
+        
+                <!-- <li data-target="#menu" data-slide-to="0" class="active"></li>
+                <li data-target="#menu" data-slide-to="1"></li>
+                <li data-target="#menu" data-slide-to="2"></li> -->
+
+            </ul>
+
+            <!-- The slideshow -->
+            <div class="carousel-inner" align="center" id="center">
+                
+            </div>
+            
+            <!-- Left and right controls -->
+            <a href="#menu" class="carousel-control-prev" data-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </a>
+            <a href="#menu" class="carousel-control-next" data-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </a>
+        </div>
+        <footer>
+            <div class="partners row">
+                <div class="partner">
+                    <a href="http://localhost/cardapioNHAK/">
+                        <img src="./assets/img/IFood_logo.svg.png" alt="">
+                    </a>
+                </div>
+                <div class="partner">
+                    <a href="http://localhost/cardapioNHAK/">
+                        <img src="./assets/img/aiqfome.png" alt="">
+                    </a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        const jsonNhak = `{"products": [
+            {
+                "type": "potato",
+                "name": "Bolonhesa com catupiry",
+                "desc": "batata, purê Nhak, bolonhesa, catupiry, queijo e batata palha",
+                "price":"R$23,99"
+            },
+
+            {
+                "type": "potato",
+                "name": "Bolonhesa com cheddar",
+                "desc": "batata, purê Nhak, bolonhesa, cheddar, queijo e batata palha",
+                "price":"R$23,99"
+            },
+
+            {
+                "type": "potato",
+                "name": "Carne Louca com catupiry",
+                "desc": "batata, purê Nhak, carne cozida e desfiada com molho de tomate e azeitona, catupiry, queijo e batata palha",
+                "price":"R$23,99"
+            },
+
+            {
+                "type": "potato",
+                "name": "Carne Louca com cheddar",
+                "desc": "batata, purê Nhak, carne cozida e desfiada com molho de tomate e azeitona, catupiry, queijo e batata palha",
+                "price":"R$23,99"
+            },
+
+            {
+                "type": "potato",
+                "name": "Calabresa com catupiry",
+                "desc": "batata, purê Nhak, calabresa, catupiry, queijo e batata palha",
+                "price":"R$22,99"
+            },
+
+            {
+                "type": "potato",
+                "name": "Calabresa com cheddar",
+                "desc": "batata, purê Nhak, calabresa, cheddar, queijo e batata palha",
+                "price":"R$22,99"
+            },
+
+            {
+                "type": "potato",
+                "name": "Frango com catupiry",
+                "desc": "batata, purê Nhak, frango desfiado, catupiry, queijo e batata palha",
+                "price":"R$23,99"
+            },
+
+            {
+                "type": "potato",
+                "name": "Frango com cheddar",
+                "desc": "batata, purê Nhak, frango desfiado, cheddar, queijo e batata palha",
+                "price":"R$23,99"
+            },
+
+            {
+                "type": "potato",
+                "name": "Mexicana com catupiry",
+                "desc": "batata, purê Nhak, carne moída com molho picante, catupiry, queijo, doritos e batata palha",
+                "price":"R$24,99"
+            },
+
+            {
+                "type": "potato",
+                "name": "Mexicana com cheddar",
+                "desc": "batata, purê Nhak, carne moída com molho picante, cheddar, queijo, doritos e batata palha",
+                "price":"R$24,99"
+            },
+
+            {
+                "type": "potato",
+                "name": " Pizza com catupiry",
+                "desc": "batata, purê Nhak, presunto, queijo, tomate, orégano, catupiry e batata palha",
+                "price":" R$23,99"
+            },
+
+            {
+                "type": "potato",
+                "name": "Quatro queijos",
+                "desc": "batata, purê Nhak, mussarela, catupiry, provolone, cheddar e batata palha",
+                "price":"R$22,99"
+            },
+
+            {
+                "type": "potato",
+                "name": "Strogonoff  de carne",
+                "desc": "batata, purê Nhak, strogonoff  de carne, queijo e batata palha",
+                "price":"R$24,99"
+            },
+
+            {
+                "type": "potato",
+                "name": "Strogonoff  de frango",
+                "desc": "batata, purê Nhak, strogonoff  de frango, queijo e batata palha",
+                "price":"R$24,99"
+            },
+
+            {
+                "type": "drink",
+                "name": "Coca-Cola",
+                "desc": "Lata 350ml",
+                "price":"R$4,00"
+            },
+
+            {
+                "type": "drink",
+                "name": "Guaraná",
+                "desc": "Lata 350ml",
+                "price":"R$4,00"
+            },
+
+            {
+                "type": "drink",
+                "name": "Suco",
+                "desc": "Uva Lata 350ml",
+                "price":"R$5,00"
+            }
+                
+        ]}`;
+
+        const json = JSON.parse(jsonNhak);
+
+        var indicators = document.getElementById('indicators');
+        var center = document.getElementById('center');
+
+        for(i = 0; i <=json.products.length; i++){
+            //console.log(i)
+            if(i == 0){
+                var html = '<li class="active" data-target="#menu" data-slide-to="'+i+'" ></li>';    
+                indicators.innerHTML += html;
+            } else {
+                var html = '<li data-target="#menu" data-slide-to="'+i+'"></li>';
+                indicators.innerHTML += html;
+            }
+            
+        }
+
+        for(i = 0; i <=json.products.length; i++){
+            if(i == 0){
+                html = '<div class="carousel-item active">'+
+                    '<div style="width: 1100px; height: 500px;">'+
+                        '<p class="product-title" id="product-title'+i+'"></p>'+ 
+                        '<p class="product-body" id="product-body'+i+'">'+
+                        '</p>'+
+                    '</div>'+
+                '</div>';
+
+                center.innerHTML += html;
+            } else {
+                html = '<div class="carousel-item">'+
+                    '<div style="width: 1100px; height: 500px;">'+
+                        '<p class="product-title" id="product-title'+i+'">'+
+                        '</p>'+
+                        '<p class="product-body" id="product-body'+i+'">'+
+                        '</p>'+
+                    '</div>'+
+                '</div>';
+            
+                center.innerHTML += html;
+            }
+        }
+
+        for(i = 0; i <= json.products.length; i++){
+            document.getElementById('product-title'+i).innerHTML = json.products[i].name;
+            document.getElementById('product-body'+i).innerHTML = json.products[i].desc;
+        }
+
+        
+    </script>
+</body>
+</html> 
+    
